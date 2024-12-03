@@ -89,6 +89,19 @@ select distinct dv_readmit_flag, count(*)
     from readmissions_raw
     group by dv_readmit_flag;
 
+-- drop the table
+drop table readmissions_raw;
+
+select distinct dv_readmit_flag, count(*)
+    from readmissions_raw
+    group by dv_readmit_flag;
+
+undrop table readmissions_raw;
+
+select distinct dv_readmit_flag, count(*)
+    from readmissions_raw
+    group by dv_readmit_flag;
+
 
 
 
