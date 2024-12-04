@@ -42,7 +42,7 @@ create or replace view new_patients_predictions_analytics_view as
 --Grant our outreach coordinator the appropriate permissions
 use role accountadmin;    
 create or replace role outreach_role;
-grant role outreach_role to user bmutell;
+grant role outreach_role to user [your user here];
 
 use role datasci;
 use schema analytics.readmit;
