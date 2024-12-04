@@ -4,7 +4,9 @@ grant create database on account to role datasci;
 grant create warehouse on account to role datasci;
 grant import share on account to role datasci;
 
-grant role datasci to user [your user name];
+set my_user  = current_user();
+grant role datasci to user identifier($my_user);
+
 use role datasci;
 
 
