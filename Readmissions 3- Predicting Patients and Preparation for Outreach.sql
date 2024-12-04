@@ -65,23 +65,7 @@ create or replace warehouse pres_wh
 grant usage on warehouse pres_wh to role datasci;
 grant usage on warehouse pres_wh to role outreach_role;
 
---Create and apply masking policies for sensitive data
 use role datasci;
-use schema analytics.readmit;
-
-
--- Remove masking policies from previous runs
-alter view new_patients_predictions_analytics_view modify
-    column patient_age unset masking policy, 
-    column marital_status unset masking policy, 
-    column bmi unset masking policy,
-    column total_charges unset masking policy,
-    column address unset masking policy,
-    column phone unset masking policy,
-    column email unset masking policy,
-    column address unset masking policy;
-alter view analytics.readmit.new_patients_predictions_analytics_view drop row access policy analytics.security.readmissions_RAP;
-
 
 --Create simple masking policies for strings, float numerics, and rounding age
 create schema analytics.security;
