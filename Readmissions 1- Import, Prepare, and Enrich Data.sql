@@ -18,7 +18,8 @@ create or replace file format my_csv_format
     empty_field_as_null = true
     FIELD_OPTIONALLY_ENCLOSED_BY = '"'
     date_format='DD-MON-YY'
-    error_on_column_count_mismatch=false
+    error_on_column_count_mismatch=false,
+    compression=gzip
    ;
 
 --Define tables for our data   
@@ -66,7 +67,7 @@ create or replace table readmissions_raw
     
 --Copy the files into the tables we just defined                                                                           
 copy into readmissions_raw
-    from @load_stage/readmissions_raw.csv
+    from @load_stage/readmissions_raw.csv.gz
     file_format=my_csv_format
     on_error=continue;
         
